@@ -1,4 +1,4 @@
-# `@bci/retp`
+# Reliable EEG Data Transport Protocol (RETP)
 
 > TODO: description
 

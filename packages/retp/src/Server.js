@@ -38,7 +38,9 @@ exports.Server = class Server extends net.Server {
 
 			}).on('error', () => {
 
-			});
+			}).on('close', () => {
+
+			}).on('');
 		});
 
 		this[SYMBOL.STATE] = state;
@@ -49,5 +51,31 @@ exports.Server = class Server extends net.Server {
 		return {};
 	}
 	
+	setFinderActived(active) {
+		const actived = this[SYMBOL.STATE].finder.active;
 
+		if (active === true) {
+			if (actived) {
+				throw new Error();
+			}
+
+			this[SYMBOL.AGENT_FINDER].open();
+		} else if (active === false) {
+			if (!actived) {
+				throw new Error();
+			}
+			
+			this[SYMBOL.AGENT_FINDER].close();
+		} else {
+			throw new TypeError();
+		}
+
+		this[SYMBOL.STATE].finder.active = active;
+
+		return this;
+	}
+	
+	setBindingAllowed(bindingAllowed) {
+
+	}
 };
