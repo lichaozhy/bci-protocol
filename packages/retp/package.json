@@ -27,6 +27,6 @@
     "url": "https://github.com/lichaozhy/bci-protocol/issues"
   },
   "devDependencies": {
-    "mocha": "^6.2.2"
+    "mocha": "^10.2.0"
   }
 }
